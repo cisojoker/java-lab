@@ -8,19 +8,18 @@ class empdetails
     public void getdata() 
     {
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("Enter the name of the employee");
+        System.out.println("NAME");
         name = scanner.nextLine();
-        System.out.println("Enter the Employee ID");
+        System.out.println("ID");
         ID = scanner.nextLine();
-        System.out.println("Enter the department of the employee");
+        System.out.println("Department");
         dept = scanner.nextLine();
-        System.out.println("Enter the age of employee ");
+        System.out.println("Age");
         age = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character left by nextInt()
-        System.out.println("Enter the designation of the employee");
+        System.out.println("Designation");
         des = scanner.nextLine();
-        System.out.println("Enter the salary of the employee");
+        System.out.println("Salary");
         sal = scanner.nextDouble();
         scanner.nextLine(); // Consume the newline character left by nextDouble()
         System.out.println();
