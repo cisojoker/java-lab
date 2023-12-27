@@ -1,90 +1,63 @@
 import java.util.*;
-class empdetails 
-{
-    public String name, ID, dept, des;
-    public int age;
-    public double sal;
-
-    public void getdata() 
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("NAME");
-        name = scanner.nextLine();
-        System.out.println("ID");
-        ID = scanner.nextLine();
-        System.out.println("Department");
-        dept = scanner.nextLine();
-        System.out.println("Age");
-        age = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character left by nextInt()
-        System.out.println("Designation");
-        des = scanner.nextLine();
-        System.out.println("Salary");
-        sal = scanner.nextDouble();
-        scanner.nextLine(); // Consume the newline character left by nextDouble()
-        System.out.println();
+class empdetails{
+    public String name,eid,dept,desi;
+    public int age,salary;
+    
+    public void getdata(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the name");
+        name=sc.nextLine();
+        System.out.println("enter the eid");
+        eid=sc.nextLine();
+        System.out.println("enter the dept");
+        dept=sc.nextLine();
+        System.out.println("enter the desi");
+        desi=sc.nextLine();
+        System.out.println("enter the age");
+        age=sc.nextInt();
+        System.out.println("enter the salary");
+        salary=sc.nextInt();
     }
-    public void printdata() 
-    {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Employee ID: " + ID);
-        System.out.println("Department: " + dept);
-        System.out.println("Designation: " + des);
-        System.out.println("Salary: " + sal);
-        System.out.println();
+    public void display(){
+         System.out.println(" name: "+name);
+          System.out.println(" eid: "+eid);
+           System.out.println(" dept: "+dept);
+            System.out.println(" desi: "+desi);
+             System.out.println(" age: "+age);
+              System.out.println(" salary: "+salary);
     }
 }
-public class Main 
-{
-    public static void main(String[] args) 
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number of employees: ");
-        int num = scanner.nextInt();
-        empdetails[] employees = new empdetails[num];
-        for (int i = 0; i < num; i++) 
-        {
-            System.out.println("Enter details for Employee " + (i+1));
-            employees[i] = new empdetails();
-            employees[i].getdata();
-        }
-        for (int i = 0; i < num; i++) 
-        {
-            System.out.println("Details for Employee " + (i+1));
-            employees[i].printdata();
-        }
-        double salestotal = 0;
-        for (int i = 0; i < num; i++) 
-        {
-            if(employees[i].dept.compareTo("sales") == 0)
-            {
-                salestotal = salestotal + employees[i].sal;
-            }
-        }
-        System.out.println("Total Salary of Sales Department is "+ salestotal);
-
-        double max = 0;
-        int index = 0;
-        for (int i = 0; i < num; i++) 
-        {
-            if(employees[i].dept.compareTo("purchase") == 0 & employees[i].des.compareTo("manager") == 0)
-            {
-                if(employees[i].sal > max)
-                {
-                    max = employees[i].sal;
-                    index = i;
-                }
-            }
-        }
-        if (max == 0)
-        {
-            System.out.println("There are no managers in purchase department");
-        }
-        else
-        {
-            System.out.println("Details of highest paid manager of purchase department is ");
-            employees[index].printdata();
+public class Main{
+    public static void main(String[] args){
+    empdetails[] emp=new empdetails[5];
+    for(int i=0;i<5;i++){
+        emp[i]=new empdetails();
+        emp[i].getdata();
+    }
+    System.out.println("Detail of employee are::");
+    for(int i=0;i<5;i++){
+        emp[i].display();
+        System.out.println();
+    }int sum=0;
+    for(int i=0;i<5;i++){
+        if(emp[i].dept.compareTo("sales")==0){
+            sum+=emp[i].salary;
         }
     }
+    System.out.println("salary sales"+sum);
+    int index=0;int maxi=0;
+    for(int i=0;i<5;i++){
+        if(emp[i].desi.compareTo("manager")==0 && emp[i].dept.compareTo("purchase")==0){
+            if(maxi<emp[i].salary){
+                index=i;
+                maxi=emp[i].salary;
+            }
+        }
+    }
+    if(maxi==0)System.out.println("does'nt exist");
+    else {
+    System.out.println("highest paid manager of purchaase department");
+    emp[index].display();
+    }
+  }
 }
