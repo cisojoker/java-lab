@@ -1,12 +1,10 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Object key = new Object();
         Queue<Integer> queue = new LinkedList<>();
         int size = 8;
-
         Thread producer = new Thread(() -> {
             int count = 0;
             while (true) {
@@ -23,7 +21,6 @@ public class Main {
                 }
             }
         });
-
         Thread consumer = new Thread(() -> {
             while (true) {
                 synchronized (key) {
@@ -39,7 +36,6 @@ public class Main {
                 }
             }
         });
-
         producer.start();
         consumer.start();
     }
