@@ -3,7 +3,7 @@ index.html
 <head><title>anything</title></head>
 <body>
 <form action="http://localhost:8080/projectname/check" method="get">
-<fieldset style="width:20%;background-color:yellow"</form>
+<fieldset style="width:20%;background-color:yellow">
 <table>
 <tr><td>name:</td><td><input type="text" name="name"></td></tr>
 <tr><td>age:</td><td><input type="text" name="age"></td></tr>
