@@ -25,7 +25,7 @@ public class Main extends HttpServlet
     {
         res.setContentType("text/html");
         PrintWriter pw=res.getWriter();
-        String name=res.getParameter("name");
+        String name=req.getParameter("name");
         int age=Integer.parseInt(req.getParameter("age"));
         if(age>=18){
             pw.println("<font color='green' size='4'>welcome "+name+"to this site</font>");
