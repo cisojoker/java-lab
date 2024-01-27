@@ -1,5 +1,5 @@
 import java.util.*;
-class bank{
+abstract class bank{
     public String name,acno;
     public double bal,intamt,intrate,year;
     public void getdata(){
@@ -19,10 +19,7 @@ class bank{
         System.out.println("bal: "+bal);
         System.out.println("year: "+year);
     }
-    public void interest(){
-        intrate=0;
-        intamt=0;
-    }
+    abstract void interest();
 }
 class sbi extends bank{
     public void interest(){
