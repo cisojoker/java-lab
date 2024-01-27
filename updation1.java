@@ -1,27 +1,68 @@
 import java.util.*;
-public class Main
-{
-    public static void area(){
-        double l,b;
+public class Main{
+    public static void rootquad(){
         Scanner sc=new Scanner(System.in);
-                System.out.println("enter the length and breadth ");
-        l=sc.nextInt();
-        b=sc.nextInt();
-        System.out.println("area is :"+(l*b));
+        System.out.println("enter the a,b,c values:");
+        double a=sc.nextDouble();
+        double b=sc.nextDouble();
+        double c=sc.nextDouble();
+        double D=(b*b)-(4*a*c);
+        
+        if(D==0){
+            double root=-b/(2*a);
+            System.out.println("roots:");
+            System.out.println(root);
+            System.out.println(root);
+        }
+        else if(D>0){
+            double root1=(-b+Math.sqrt(D))/(2*a);
+            double root2=(-b-Math.sqrt(D))/(2*a);
+            System.out.println("roots:");
+            System.out.println(root1);
+            System.out.println(root2);
+        }
+        else{
+            double real=-b/(2*a);
+            double imag=(Math.sqrt(-D))/(2*a);
+            System.out.println("roots:");
+            System.out.println(real+"+"+imag+"i");
+            System.out.println(real+"-"+imag+"i");
+        }
     }
-    public static void mularray(){
-        int[] array1 = {1, 2, 3, 4};
-        int[] array2 = {5, 6, 7, 8};
+    public static void matrixmul(){
+        int[] array1={1,2,3,4,5,6};
+        int[] array2={6,5,4,3,2,1};
         int[] result=new int[array1.length];
         for(int i=0;i<array1.length;i++){
             result[i]=array1[i]*array2[i];
-        }
-        for(int i=0;i<array2.length;i++){
             System.out.println(result[i]);
         }
-
     }
-    public static void mergesort(int[] array1){
+    public static void sorr(){
+        int[] arr={6,9,5,2,3,4,6};
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=0;j<arr.length-i-1;j++){
+                if(arr[j+1]>arr[j]){
+                    int temp=arr[j+1];
+                    arr[j+1]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        System.out.println("Sorted Array:");
+          for(int i=0;i<arr.length;i++){
+            System.out.println(arr[i]);
+        }
+    }
+    public static void main(String[] args){
+        matrixmul();
+        sorr();
+        rootquad();
+    }
+}
+
+///maodification 
+ public static void mergesort(int[] array1){
         if(array1.length==1)return;
         int mid=array1.length/2;
         int[] left=new int[mid];
@@ -51,35 +92,3 @@ public class Main
             array[k++]=right[j++];
         }
     }
-    public static void sorr(){
-        
-        int[] array1 = {2,4,3,1 };
-        //  for(int i=0;i<array1.length;i++){
-        //   System.out.println(array1[i]+" ");
-        // }
-        // int n=array1.length;
-        // for(int i=0;i<n-1;i++){
-        //     for(int j=0;j<n-i-1;j++){
-        //         if(array1[j+1]<array1[j]){
-        //               int temp = array1[j];
-        //             array1[j] = array1[j + 1];
-        //             array1[j + 1] = temp;
-        //         }
-        //     }
-        // }
-        mergesort(array1);
-        System.out.println("sorted array in ascending order" +"\n");
-           for(int i=0;i<array1.length;i++){
-           System.out.print(array1[i]+" ");
-        }
-         System.out.print("\n sorted array in descendingorder" +"\n");
-           for(int i=array1.length-1;i>=0;i--){
-           System.out.print(array1[i]+" ");
-        }
-    }
-	public static void main(String[] args) {
-	  area();
-	  mularray();
-	  sorr();
-	}
-}
