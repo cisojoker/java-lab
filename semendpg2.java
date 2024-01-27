@@ -35,19 +35,21 @@ public class Main{
         emp[i].getdata();
     }
     System.out.println("Detail of employee are::");
+    
     for(int i=0;i<5;i++){
         emp[i].display();
         System.out.println();
-    }int sum=0;
+    }
+    int sum=0;
     for(int i=0;i<5;i++){
-        if(emp[i].dept.compareTo("sales")==0){
+        if(emp[i].dept.equals("sales")){
             sum+=emp[i].salary;
         }
     }
     System.out.println("salary sales"+sum);
     int index=0;int maxi=0;
     for(int i=0;i<5;i++){
-        if(emp[i].desi.compareTo("manager")==0 && emp[i].dept.compareTo("purchase")==0){
+        if(emp[i].desi.equals("manager") && emp[i].dept.equals("purchase")){
             if(maxi<emp[i].salary){
                 index=i;
                 maxi=emp[i].salary;
