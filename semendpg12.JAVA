@@ -3,9 +3,8 @@ Sessionjsp.html
 <head> <title> SESSION LOGIN </title> </head>
 <body>
 <center>
-<form action="http://localhost:8080/jsp/Session1.jsp"
-method="get"> Enter Name: <input type="text"
-name="uname"> <br>
+<form action="http://localhost:8080/jsp/Session1.jsp" method="get">
+Enter Name: <input type="text" name="uname"> <br>
 <input type="submit" value="LOGIN" name="register">
 </form>
 </center>
@@ -17,13 +16,11 @@ Session1.jsp
 <%
 Date d=new Date();
 %>
-<p align="right"> Time;<%=d.getTime()%></p>
+<p align="right"> Time:<%=d.getTime()%></p>
 <%
-String
-un=request.getParameter("uname
-"); session.setAttribute("user",un);
-session.setAttribute("time",d.getT
-ime());
+String un=request.getParameter("uname");
+session.setAttribute("user",un);
+session.setAttribute("time",d.getTime());
 %>
 Hello <%=un%>
 <br><br>
@@ -33,11 +30,9 @@ Session2.jsp
 <%@page language="java" import="java.util.*" errorPage=""%>
 <%
 Date d2=new Date();
-String
-un=(String)session.getAttribute("user
-"); Long
-t1=(Long)session.getAttribute("time")
-; Long t2=d2.getTime();
+String un=(String)session.getAttribute("user"); 
+Long t1=(Long)session.getAttribute("time"); 
+Long t2=d2.getTime();
 %>
 Thank you <%=un%>
 <br><br>
