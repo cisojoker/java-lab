@@ -32,7 +32,7 @@ public class Main extends HttpServlet
         }else{
             pw.println("<font color='red' size='4'>hello "+name+"you are not authorised</font>");
         }
-        pw.println("<br><br><a href='index.html'>back</a");
+        pw.println("<br><br><a href='index.html'>back</a>");
         pw.close();
     }
 }
