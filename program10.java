@@ -1,20 +1,15 @@
 import java.sql.*;
 import java.util.Scanner;
-
 public class jdbc {
     public static void main(String[] args) {
-        // Replace these with your database details
         Scanner sc = new Scanner(System.in);
         String jdbcUrl = "jdbc:mysql://localhost:3306/students";
         String username = "root";
         String password = "";
         try {
-            // Establishing the database connection
             Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
-            // Driver Program
             while (true) {
-                System.out.println(
-        "1. Add student details.\n2. Display student details\n3. Delete student details\n4. Update Student Details\n");
+                System.out.println("1. Add student details.\n2. Display student details\n3. Delete student details\n4. Update Student Details\n");
                 System.out.println("Please choose an option: ");
                 int choice = sc.nextInt();
                 sc.nextLine();
@@ -22,12 +17,11 @@ public class jdbc {
                     String queryInsert = "INSERT INTO students(Name,USN,Age,YOB,Marks) VALUES ('pp','40',15,2005,45);";
                     PreparedStatement preparedStatement = connection.prepareStatement(queryInsert);
                     preparedStatement.executeUpdate();
-                } else if (choice == 2) {
-                    // Retrieving student details
+                } 
+                else if (choice == 2) {
                     String query = "SELECT * FROM students";
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
                     ResultSet resultSet = preparedStatement.executeQuery();
-                    // Displaying student details
                     while (resultSet.next()) {
                         String name = resultSet.getString("Name");
                         String usn = resultSet.getString("USN");
@@ -38,13 +32,15 @@ public class jdbc {
                                 usn + ", Age: " + age + ", YearofBirth: " + yob
                                 + ", Marks: " + marks);
                     }
-                } else if (choice == 3) {
+                } 
+                else if (choice == 3) {
                     System.out.println("Please enter the USN of the student to be deleted: ");
                     String usndel = sc.nextLine();
                     String queryDel = "DELETE FROM students WHERE USN='" + usndel + "'";
                     PreparedStatement preparedStatement = connection.prepareStatement(queryDel);
                     preparedStatement.executeUpdate();
-                } else if (choice == 4) {
+                } 
+                else if (choice == 4) {
                     System.out.println("Please enter the USN of the student to be updated: ");
                     String usnUpd = sc.nextLine();
                     System.out.println("Please enter the new name: ");
@@ -56,7 +52,7 @@ public class jdbc {
                     pstmt.executeUpdate();
                 }
             }
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
