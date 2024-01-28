@@ -1,1 +1,42 @@
-
+import java.util.*;
+import java.sql.*;
+public class Main{
+    public class void main(String[] args){
+        String url="jdbc://localhost:3306/DB";
+        String uname="root";
+        String pswd="";
+        try{
+            Connection connection=DiskManager.getConnection(url,uname,pswd);
+            while(true){
+                Scanner sc=new Scanner(System.in);
+            System.out.println("1>add\n 2>delete/n 3>display/n choose any one choice");
+            int choice=sc.nextInt();
+            if(choice==1){
+                String q="INSERT INTO DB(name,usn,roll,marks) VALUES('MADHUR','1',12,22);";
+                PreparedStatement ps=connection.preparedStatement(q);
+                ps.executeUpdate();
+                
+            }else if(choice==2){
+                System.out.println("enter the usn to delete");
+                String usde=sc.nextLine();
+                String q="DELETE FROM students WHERE usn='"+usde+"';";
+                PreparedStatement ps=connection.preparedStatement(q);
+                ps.executeUpdate();
+            }else if (choice ==3){
+                String q="SELECT * FROM students;";
+                PreparedStatement ps=connection.preparedStatement(q);
+                ResultSet rs=preparedStatement.executeQuery();
+                while(rs.next()){
+                    String name=rs.getString("name");
+                    String usn=rs.getString("usn");
+                    int roll=rs.getInt("roll";)
+                    int marks=rs.getInt("marks");
+                    System.out.println("name:"+name+"usn:"+usn+"roll"+roll+"marks"+marks);
+                }
+            }
+        }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+}
