@@ -3,7 +3,6 @@ session.jsp
 <head>
 <title>mad</title>
 </head>
-</html>
 <body>
 <center>
 <form action="http://localhost:8080/jsp/session1.jsp" method="get">
