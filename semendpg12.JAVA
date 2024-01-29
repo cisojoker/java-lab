@@ -18,7 +18,7 @@ session1.jsp
 <form action="http://localhost:8080/jsp/session2.jsp" method="get">
 
 <% Date d=new Date();%>
-<p align="right" >time:<%=d.getTime()%></p>
+<p align="right" >time:<%=d.getTime();%></p>
 <%
 String un=request.getParameter("uname");
 session.setAttribute("user",un);
